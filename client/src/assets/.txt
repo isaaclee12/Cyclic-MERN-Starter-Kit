@@ -1,0 +1,1 @@
+This folder should hold your assets, i.e. your images, videos, and other media.

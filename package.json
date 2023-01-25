@@ -4,13 +4,11 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "cd server && node server.js",
+    "start": "concurrently \"npm:start-client\" \"npm:start-server\"",
+    "start-client": "npm --prefix client start",
+    "start-server": "npm --prefix server start",
     "dev": "npm --prefix server run dev",
     "build": "npm --prefix client run build",
-    "dev-concurrent": "concurrently \"npm:start-client\" \"npm:dev\"",
-    "start-client": "npm --prefix client start",
-    "start-mockServer": "npm --prefix client run dev",
-    "dev-concurrent-mockServer": "concurrently \"npm:start-client\" \"npm:start-mockServer\"",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
@@ -27,7 +25,12 @@
     "express-session": "^1.17.1",
     "joi": "^17.7.0",
     "mongodb": "^3.7.3",
-    "mongoose": "^5.12.3"
+    "mongoose": "^5.12.3",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "nanoid": "^3.3.4",
+    "passport": "^0.6.0",
+    "passport-discord": "^0.1.4"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
