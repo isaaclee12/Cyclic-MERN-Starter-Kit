@@ -3,6 +3,7 @@ const Joi = require("joi");
 
 STRING_MAX_LENGTH = 280;
 
+// Define the schema of the "event" object
 const EventSchema = new mongoose.Schema(
   {
     title: {
