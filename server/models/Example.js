@@ -1,5 +1,5 @@
 /* 
-* Boilerplate code for mongoose Schemas
+* Boilerplate code for creating your mongoDB/mongoose Schemas
 * See the link below for the docs:
 * https://mongoosejs.com/docs/schematypes.html
 */

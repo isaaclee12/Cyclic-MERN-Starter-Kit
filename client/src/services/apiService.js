@@ -6,6 +6,7 @@ const URL = axios.create({
 
 // This is the API service
 // TODO: Replace these API calls and all the server endpoints to examples
+// See server/routes/main.js to see where these routes connect to
 class APIService {
   create(msg) {
     return URL.post(`/events/`, msg);
@@ -21,6 +22,16 @@ class APIService {
   }
   deleteAllEvents(groupId) {
     return URL.delete(`/events/deleteAllEvents/${groupId}`)
+  }
+  getCurrentUser() {
+    return URL.get("/getDisplayName");
+  }
+  logout() {
+    return URL.get("/auth/logout")
+  }
+
+  deleteNeedsToBeWelcome() {
+    return URL.delete("/needsToBeWelcome")
   }
 }
 
