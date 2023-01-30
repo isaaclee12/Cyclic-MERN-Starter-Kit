@@ -23,6 +23,7 @@ class APIService {
   deleteAllEvents(groupId) {
     return URL.delete(`/events/deleteAllEvents/${groupId}`)
   }
+
   getCurrentUser() {
     return URL.get("/getDisplayName");
   }
@@ -33,6 +34,24 @@ class APIService {
   deleteNeedsToBeWelcome() {
     return URL.delete("/needsToBeWelcome")
   }
+
+
+  createExample(msg) {
+    return URL.post(`/examples/`, msg);
+  }
+  getAllExamples() {
+    return URL.get("/examples");
+  }
+  getExampleById(id) {
+    return URL.get(`/examples/${id}`);
+  }
+  deleteExample(id) {
+    return URL.delete(`/examples/${id}`)
+  }
+  deleteAllExamples(groupId) {
+    return URL.delete(`/examples/deleteAllExamples/${groupId}`)
+  }
+
 }
 
 export default new APIService();

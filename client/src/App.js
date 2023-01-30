@@ -12,52 +12,60 @@ import { FaDiscord } from "react-icons/fa";
 const App = () => {
 
   const [loading, setLoading] = useState(true);
-  const [data, setData] = useState({});
+  const [data, setData] = useState([]);
+  
+  // Fetch events from server
+  const fetchData = async () => {
+    // Database data from server
+    const response = await APIService.getAllExamples();
+    setData(response.data);
+  }
 
   const dataToSubmit = {
-    title: "Test 1 - EST",
-    description: "i", 
-    location: "i",
-    discordName: "i",
-    firstEventStart: "1674957600000",
-    firstEventEnd: "1674961200000", 
-    lastEventStart: "1674957600000",
-    recurring: {
-      rate: "noRecurr",
-      days: [],
-    }
-    // groupId: "tycFfLNJW7EPjVeAtWCja",
-    // startAt: "2023-01-29T03:00:00.000+00:00",
-    // endAt: "2023-01-29T04:00:00.000+00:00",
-    // user: "63c87c689a3c012aa8c974c2__v0",    
+    stringField: "Test",
+    numberField: 10,
+    dateField: new Date()
   }
 
-  const handleSubmit = async async => {
+  const handleSubmit = async () => {
+    // Example
     try {
-        // Axios automatically serializes object to JSON
-        // https://masteringjs.io/tutorials/axios/post-json
-        const response = await APIService.create(dataToSubmit);
-        console.log(response);
-      } catch (err) {
-        console.error(err)
-        return
-      }
+      // Axios automatically serializes object to JSON
+      // https://masteringjs.io/tutorials/axios/post-json
+      const response = await APIService.createExample(dataToSubmit);
+      console.log(response);
+    } catch (err) {
+      console.error(err)
+      return
+    }
+
+    // Re-fetch data after addition
+    fetchData();
   }
 
+  // Delete data
+  const handleDelete = async (event, idToDelete) => {
+    try {
+      const response = await APIService.deleteExample(idToDelete);
+      console.log(response);
+    } catch (err) {
+      console.error(err)
+      return
+    }
+
+    // Re-fetch data after delete
+    fetchData();
+  }
+
+  // See data after it's fetched for debugging purposes
   useEffect(() => {
     console.log("Got data:", data);
   }, [data])
 
+  // Fetch the data on page load, don't set loading to false until data's fetched.
   useEffect(() => {
-
     setLoading(true);
-    // Fetch events from server
-    const fetch = async () => {
-      // Database data from server
-      const response = await APIService.getAll();
-      setData(response.data);
-    };
-
+    fetchData();
     fetch().then(setLoading(false)).catch(setLoading(false));
   }, [])
 
@@ -66,21 +74,34 @@ const App = () => {
 
   return (
     <div className="">
-      <NavBar/>
-      <Layout/>
+      <NavBar />
+      <Layout />
 
       <LoginWithDiscord DiscordIcon={FaDiscord} />
 
+      <button className="mb-10" onClick={handleSubmit}>Press me to submit data!</button>
 
+      <h1>mmmm Data:</h1>
+      <div className="ml-10">
+        {
+          data.map(item =>
+            <ul className="list-disc mt-5" key={item._id}>
+              <li>{item.stringField}</li>
+              <li>{item.numberField}</li>
+              <li>{item.dateField}</li>
+              <button onClick={(e) => { handleDelete(e, item._id) }}> Delet pls</button>
+            </ul>
+          )
+        }
+      </div>
 
-      <button onClick={handleSubmit}>Press me to submit data!</button>
       {/* TODO: Figure out how to keep context's state variable without refresh.
       Options include cookies, sessionStorage, or a routingContext like in together
       This should be discussed with the team */}
       <Routes>
         <Route path="/"></Route>
-        <Route path="one" element={<FeatureOne/>}></Route>
-        <Route path="two" element={<FeatureTwo/>}></Route>
+        <Route path="one" element={<FeatureOne />}></Route>
+        <Route path="two" element={<FeatureTwo />}></Route>
       </Routes>
     </div>
   )
