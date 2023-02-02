@@ -4,9 +4,9 @@ A demo repo with the deployment setup/basic architecture of the 100Devs Together
 # Roadmap:
 ~~- Implement Discord Authorization~~
 - Have certain features only appear if authorized
-- Set Up "Example" Object for API
+~~- Set Up "Example" Object for API~~
 - Implement CRUD functionality for the "Example" Object
-
+- Ask Rachel about "repo" vs "template" on GitHub.
 # Tech Used:
 - React
 - Tailwind CSS

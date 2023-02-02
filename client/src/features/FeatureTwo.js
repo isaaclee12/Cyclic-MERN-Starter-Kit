@@ -10,7 +10,7 @@ export default function FeatureTwo() {
 
     // Try setting exampleData here:
     const handleButton = () => {
-        setExampleData({value: "two"});
+        setExampleData({value: "Value is now Two"});
     }
 
     const buttonStyle = "border-2 border-black \

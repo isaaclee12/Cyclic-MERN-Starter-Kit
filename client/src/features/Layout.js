@@ -7,9 +7,10 @@ export default function Layout() {
     const { exampleData } = useExampleContext();
 
     return (
-        <div className="mb-10">
+        <div className="my-10">
             <h1 className="text-xl">Hey Everyone!</h1>
-            <p>Check out this cool context variable: {exampleData.value}</p>
+            <p>Check out this cool context variable:</p>
+            <h3 className="text-3xl">{exampleData.value}</h3>
         </div>
     )
 }

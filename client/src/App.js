@@ -13,7 +13,7 @@ const App = () => {
 
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
-  
+
   // Fetch events from server
   const fetchData = async () => {
     // Database data from server
@@ -75,34 +75,62 @@ const App = () => {
   return (
     <div className="">
       <NavBar />
-      <Layout />
 
-      <LoginWithDiscord DiscordIcon={FaDiscord} />
+      <main className="max-w-[50%] ml-[25%] mr-[25%] text-center">
+        <Layout />
 
-      <button className="mb-10" onClick={handleSubmit}>Press me to submit data!</button>
-
-      <h1>mmmm Data:</h1>
-      <div className="ml-10">
-        {
-          data.map(item =>
-            <ul className="list-disc mt-5" key={item._id}>
-              <li>{item.stringField}</li>
-              <li>{item.numberField}</li>
-              <li>{item.dateField}</li>
-              <button onClick={(e) => { handleDelete(e, item._id) }}> Delet pls</button>
-            </ul>
-          )
-        }
-      </div>
-
-      {/* TODO: Figure out how to keep context's state variable without refresh.
+        {/* TODO: Figure out how to keep context's state variable without refresh.
       Options include cookies, sessionStorage, or a routingContext like in together
       This should be discussed with the team */}
-      <Routes>
-        <Route path="/"></Route>
-        <Route path="one" element={<FeatureOne />}></Route>
-        <Route path="two" element={<FeatureTwo />}></Route>
-      </Routes>
+        <Routes>
+          <Route path="/"></Route>
+          <Route path="one" element={<FeatureOne />}></Route>
+          <Route path="two" element={<FeatureTwo />}></Route>
+        </Routes>
+
+        <div className="mt-10">
+          <LoginWithDiscord DiscordIcon={FaDiscord} />
+        </div>
+
+        <form className="mx-40 mt-10 px-20 border-2">
+          <div className="mt-10 overflow-auto">
+            <label className="float-left">Text Field:</label>
+            <input type="text" className="border-2 float-right" />
+          </div>
+
+          <div className="mt-10 overflow-auto">
+            <label className="float-left">Number Field:</label>
+            <input type="text" className="border-2 float-right" />
+          </div>
+
+          <div className="mt-10 overflow-auto">
+            <label className="float-left">Date Field:</label>
+            <input type="text" className="border-2 float-right" />
+          </div>
+
+          <div className="mt-10 overflow-auto">
+            <label className="float-left">Username:</label>
+            <input type="text" className="border-2 float-right" />
+          </div>
+
+          <button className="my-10" onClick={handleSubmit}>Press me to submit data!</button>
+        </form>
+
+        <h1 className="mt-20">Here is your Data:</h1>
+        <div className="ml-10 text-left flex justify-center">
+          {
+            data.map(item =>
+              <ul className="list-disc mt-5 mb-20" key={item._id}>
+                <li>stringField: {item.stringField}</li>
+                <li>numberField: {item.numberField}</li>
+                <li>dateField: {item.dateField}</li>
+                <button onClick={(e) => { handleDelete(e, item._id) }}> Delete Me!</button>
+              </ul>
+            )
+          }
+        </div>
+      </main>
+
     </div>
   )
 }
