@@ -4,7 +4,7 @@ export default function FeatureOne() {
 
     // Consume (i.e. acquire, grab, pull, etc) the data
     // from the ExampleContext.
-    const { exampleData, setExampleData } = useExampleContext();
+    const { setExampleData } = useExampleContext();
 
     // We can then update this data between files.
 
