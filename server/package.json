@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "concurrently \"node dev-mongo\" \"nodemon server.js\"",
-    "dev": "node server.js"
+    "start": "node server.js",
+    "dev": "concurrently \"node dev-mongo\" \"nodemon server.js\""
   }
 }
