@@ -5,10 +5,10 @@
   "main": "server.js",
   "scripts": {
     "dev": "concurrently \"npm:dev-client\" \"npm:dev-server\"",
-    "dev-client": "npm --prefix client start",
-    "dev-server": "npm --prefix server dev",
-    "start": "npm --prefix server start",
-    "build": "npm --prefix client run build",
+    "dev-client": "cd client && npm start",
+    "dev-server": "cd server && npm dev",
+    "start": "cd server && npm start",
+    "build": "cd client && npm run build",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
