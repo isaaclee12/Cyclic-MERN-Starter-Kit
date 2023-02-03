@@ -14,7 +14,7 @@ export default function FeatureTwo() {
     }
 
     const buttonStyle = "border-2 border-black \
-    bg-cyan-400 hover:bg-cyan-600 active:bg-cyan-700 \
+    bg-purple-600 hover:bg-purple-700 active:bg-purple-800 \
     rounded-full py-2 px-10 text-slate-800 \
     text-lg font-bold tracking-wider"
 

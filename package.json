@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "concurrently \"npm:dev-client\" \"npm:dev-server\"",
     "dev-client": "cd client && npm start",
-    "dev-server": "cd server && npm dev",
+    "dev-server": "cd server && npm run dev",
     "start": "cd server && npm start",
     "build": "cd client && npm run build",
     "lint": "eslint .",
