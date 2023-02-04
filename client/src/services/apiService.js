@@ -1,27 +1,25 @@
 import axios from "axios";
 
-// const URL = axios.create({
-  // withCredentials: true,
-// });
+const URL = axios.create({});
 
 // This is the API service
 // TODO: Replace these API calls and all the server endpoints to examples
 // See server/routes/main.js to see where these routes connect to
 class APIService {
   createExample(msg) {
-    return axios.post(`/`, msg);
+    return URL.post(`/`, msg);
   }
   getAllExamples() {
-    return axios.get("/");
+    return URL.get("/");
   }
   getExampleById(id) {
-    return axios.get(`/${id}`);
+    return URL.get(`/${id}`);
   }
   deleteExample(id) {
-    return axios.delete(`/${id}`)
+    return URL.delete(`/${id}`)
   }
   deleteAllExamples(groupId) {
-    return axios.delete(`/deleteAllExamples/${groupId}`)
+    return URL.delete(`/deleteAllExamples/${groupId}`)
   }
 
 }
