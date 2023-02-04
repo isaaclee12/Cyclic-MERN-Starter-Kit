@@ -14,7 +14,7 @@ const examplesRoutes = require("./routes/examples");
 // Enable CORS for client origin only
 const cors = require('cors')
 const corsOptions = {
-   origin : ['http://localhost:3000'],
+   origin : ['http://localhost:3000', 'https://localhost:3000'],
 }
 app.use(cors(corsOptions))
 
