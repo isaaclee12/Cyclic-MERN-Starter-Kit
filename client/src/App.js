@@ -5,8 +5,6 @@ import NavBar from './features/NavBar';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './features/Layout';
 import APIService from './services/apiService';
-import LoginWithDiscord from "./features/auth/LoginWithDiscord";
-import { FaDiscord } from "react-icons/fa";
 import MainPage from 'features/MainPage';
 
 
@@ -115,10 +113,6 @@ const App = () => {
           <Route path="one" element={<FeatureOne />}></Route>
           <Route path="two" element={<FeatureTwo />}></Route>
         </Routes>
-
-        <div className="mt-10">
-          <LoginWithDiscord DiscordIcon={FaDiscord} />
-        </div>
 
         <form className="mx-40 mt-10 px-20 border-2">
           <div className="mt-10 overflow-auto">

@@ -8,7 +8,8 @@ A demo repo with the deployment setup/basic architecture of a robust full-stack 
 
 # Roadmap:
 - Remove: (Morgan, Discord Auth, Passport, Jest/Testing, ESlint, prettier, multer, maybe express-flash?, and also maybe nanoid?, go through packages one by one and see what we really need...)
-- Implement CRUD functionality for the "Example" Object.
+- Implement Update functionality for the "Example" Object.
+- Change imports in backend/server to match syntax in front end (import statements)
 - Delete artifacts from original Together project (e.g. events.js, etc)
 - Have certain features only appear if authorized.
 - Ask Rachel about "repo" vs "template" on GitHub.
