@@ -4,7 +4,7 @@
 * https://mongoosejs.com/docs/schematypes.html
 */
 const mongoose = require("mongoose");
-const Joi = require("joi");
+const Joi = require("joi"); // data validation library
 
 STRING_MAX_LENGTH = 100;
 
@@ -31,7 +31,7 @@ const ExampleSchema = new mongoose.Schema(
       // certain conditions about the data are true
       validate: { 
         validator: function (value) {
-          condition1 = true;
+          condition1 = true; // Replace "true" with whatever conditions you want to check for
           condition2 = true;
           return condition1 && condition2; // if this returns true, the data is valid
         },
