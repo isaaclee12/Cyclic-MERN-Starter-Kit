@@ -1,8 +1,4 @@
-morgan
 passport-discord
-@testing-library/jest-dom
-@testing-library/react
-@testing-library/user-event
 framer-motion
 http-proxy-middleware
 json-server

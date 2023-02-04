@@ -5,7 +5,6 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const flash = require("express-flash");
-const logger = require("morgan");
 const connectDB = require("./config/database");
 
 //Use .env file in config folder
@@ -22,9 +21,6 @@ app.use(cors(corsOptions))
 //Body Parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-//Logging
-app.use(logger("dev"));
 
 // Setup Sessions - stored in MongoDB
 app.use(
