@@ -1,7 +1,6 @@
 passport-discord
 framer-motion
 http-proxy-middleware
-json-server
 postcss
 react
 react-dom
