@@ -9,19 +9,19 @@ const URL = axios.create({
 // See server/routes/main.js to see where these routes connect to
 class APIService {
   createExample(msg) {
-    return URL.post(`/`, msg);
+    return URL.post(`https://localhost:3000/`, msg);
   }
   getAllExamples() {
-    return URL.get("/");
+    return URL.get("https://localhost:3000/");
   }
   getExampleById(id) {
-    return URL.get(`/${id}`);
+    return URL.get(`https://localhost:3000/${id}`);
   }
   deleteExample(id) {
-    return URL.delete(`/${id}`)
+    return URL.delete(`https://localhost:3000/${id}`)
   }
   deleteAllExamples(groupId) {
-    return URL.delete(`/deleteAllExamples/${groupId}`)
+    return URL.delete(`https://localhost:3000/deleteAllExamples/${groupId}`)
   }
 
 }
