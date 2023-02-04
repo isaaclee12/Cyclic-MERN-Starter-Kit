@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const URL = axios.create({});
+const URL = axios.create({
+  withCredentials: true,
+});
 
 // This is the API service
 // TODO: Replace these API calls and all the server endpoints to examples
