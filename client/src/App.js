@@ -103,7 +103,7 @@ const App = () => {
     <div className="">
       <NavBar />
 
-      <main className="max-w-[50%] ml-[25%] mr-[25%] text-center">
+      <main className="mx-[10%] text-center flex flex-col justify-center">
         <Layout />
 
         {/* TODO: Figure out how to keep context's state variable without refresh.
@@ -115,7 +115,7 @@ const App = () => {
           <Route path="two" element={<FeatureTwo />}></Route>
         </Routes>
 
-        <form className="mx-40 mt-10 px-20 border-2">
+        <form className="mx-[20%] mt-10 px-[5%] border-2">
           <div className="mt-10 overflow-auto">
             <label className="float-left">String Field:</label>
             <input type="text" onChange={(e) => handleChangeInForm(e, "setFormStringField")} className="border-2 float-right" />
@@ -135,12 +135,12 @@ const App = () => {
         </form>
 
         <h1 className="mt-20">Here is your Data:</h1>
-        <div className="ml-10 text-left flex justify-center">
+        <div className="mx-[20%] mb-20">
           { data?.map(item =>
-              <ul className="list-disc mt-5 mb-20" key={item._id}>
+              <ul className="my-10" key={item._id}>
                 <li>stringField: {item.stringField}</li>
                 <li>numberField: {item.numberField}</li>
-                <li>dateField: {item.dateField}</li>
+                <li>dateField: {item.dateField.substring(0,10)}</li>
                 <button onClick={(e) => { handleDelete(e, item._id) }}> Delete Me!</button>
               </ul>
             )

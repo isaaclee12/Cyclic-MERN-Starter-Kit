@@ -1,7 +1,7 @@
 
 const MainPage = () => {
     return(
-        <p>nice</p>
+        <p>This is the text from MainPage.js</p>
     )
 }
 
