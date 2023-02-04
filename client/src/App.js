@@ -7,6 +7,7 @@ import Layout from './features/Layout';
 import APIService from './services/apiService';
 import LoginWithDiscord from "./features/auth/LoginWithDiscord";
 import { FaDiscord } from "react-icons/fa";
+import MainPage from 'features/MainPage';
 
 
 const App = () => {
@@ -14,20 +15,51 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
+  const [formStringField, setFormStringField] = useState("");
+  const [formNumberField, setFormNumberField] = useState(0);
+  const [formDateField, setFormDateField] = useState();
+
   // Fetch events from server
   const fetchData = async () => {
     // Database data from server
     const response = await APIService.getAllExamples();
     setData(response.data);
   }
+  
+  // Fetch the data on page load, don't set loading to false until data's fetched.
+  useEffect(() => {
+    setLoading(true);
+    fetchData()
+    .then(setLoading(false)).catch(setLoading(false));
+  }, [])
 
-  const dataToSubmit = {
-    stringField: "Test",
-    numberField: 10,
-    dateField: new Date()
+  useEffect(() => {
+    if (formStringField) {
+      console.log(formStringField, "///", formNumberField, "///", formDateField);
+    }
+  }, [formStringField, formNumberField, formDateField])
+
+  /* Handle Data Changes */
+  const handleChangeInForm = (e, setterToCall) => {
+    // Set the target state to the new form field value
+    // `${setterToCall}`(e.target);
+
+    const {name, value} = e.target;
+    console.log(name, value);
+    console.log(eval(setterToCall)(value));
   }
 
-  const handleSubmit = async () => {
+
+  /* Data Submission */
+  const dataToSubmit = {
+    stringField: formStringField,
+    numberField: formNumberField,
+    dateField: formDateField
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
     // Example
     try {
       // Axios automatically serializes object to JSON
@@ -43,7 +75,7 @@ const App = () => {
     fetchData();
   }
 
-  // Delete data
+  /* Data Deletion */
   const handleDelete = async (event, idToDelete) => {
     try {
       const response = await APIService.deleteExample(idToDelete);
@@ -62,12 +94,8 @@ const App = () => {
     console.log("Got data:", data);
   }, [data])
 
-  // Fetch the data on page load, don't set loading to false until data's fetched.
-  useEffect(() => {
-    setLoading(true);
-    fetchData();
-    fetch().then(setLoading(false)).catch(setLoading(false));
-  }, [])
+
+
 
   // Render nothing while fetching for data from server
   if (loading) return null;
@@ -83,7 +111,7 @@ const App = () => {
       Options include cookies, sessionStorage, or a routingContext like in together
       This should be discussed with the team */}
         <Routes>
-          <Route path="/"></Route>
+          <Route index element={<MainPage/ >}></Route>
           <Route path="one" element={<FeatureOne />}></Route>
           <Route path="two" element={<FeatureTwo />}></Route>
         </Routes>
@@ -94,26 +122,21 @@ const App = () => {
 
         <form className="mx-40 mt-10 px-20 border-2">
           <div className="mt-10 overflow-auto">
-            <label className="float-left">Text Field:</label>
-            <input type="text" className="border-2 float-right" />
+            <label className="float-left">String Field:</label>
+            <input type="text" onChange={(e) => handleChangeInForm(e, "setFormStringField")} className="border-2 float-right" />
           </div>
 
           <div className="mt-10 overflow-auto">
             <label className="float-left">Number Field:</label>
-            <input type="text" className="border-2 float-right" />
+            <input type="text" onChange={(e) => handleChangeInForm(e, "setFormNumberField")} className="border-2 float-right" />
           </div>
 
           <div className="mt-10 overflow-auto">
             <label className="float-left">Date Field:</label>
-            <input type="text" className="border-2 float-right" />
+            <input type="date" onChange={(e) => handleChangeInForm(e, "setFormDateField")} className="border-2 float-right" />
           </div>
 
-          <div className="mt-10 overflow-auto">
-            <label className="float-left">Username:</label>
-            <input type="text" className="border-2 float-right" />
-          </div>
-
-          <button className="my-10" onClick={handleSubmit}>Press me to submit data!</button>
+          <button className="my-10" onClick={(e) => handleSubmit(e)}>Press me to submit data!</button>
         </form>
 
         <h1 className="mt-20">Here is your Data:</h1>
