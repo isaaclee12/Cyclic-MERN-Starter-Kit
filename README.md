@@ -7,8 +7,8 @@ A demo repo with the deployment setup/basic architecture of a robust full-stack 
 - Credit to <a href="https://github.com/RascalTwo">Rascal_Two</a> for help with Cyclic deployment
 
 # Roadmap:
-- Implement Update functionality for the "Example" Object.
 - Change imports in backend/server to match syntax in front end (import statements)
+- Implement Update functionality for the "Example" Object.
 - Delete artifacts from original Together project (e.g. events.js, etc)
 - Have certain features only appear if authorized.
 - Ask Rachel about "repo" vs "template" on GitHub.
