@@ -2,22 +2,23 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const mongoose = require("mongoose");
-const passport = require("passport");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const flash = require("express-flash");
 const logger = require("morgan");
+const connectDB = require("./config/database");
+
+
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
-const connectDB = require("./config/database");
-const mainRoutes = require("./routes/main");
-const eventsRoutes = require("./routes/events");
 const examplesRoutes = require("./routes/examples");
-const mockUser = require("./config/mockUser.json");
-const User = require("./models/User");
 
-// Passport config
-require("./config/passport")(passport);
+// Enable CORS for client origin only
+const cors = require('cors')
+const corsOptions = {
+   origin : ['http://localhost:3000'],
+}
+app.use(cors(corsOptions))
 
 //Body Parsing
 app.use(express.urlencoded({ extended: true }));
@@ -37,34 +38,15 @@ app.use(
 );
 
 // Render React as View
-app.use(express.static(path.join(__dirname, "..", "client", "build")));
-
-// Passport middleware
-app.use(passport.initialize());
-app.use(passport.session());
-
-if (
-  process.env.NODE_ENV === "development" &&
-  process.env.MOCK_USER === "true"
-) {
-  console.log("In development - using mocked user");
-  app.use(async (req, res, next) => {
-    req.user = mockUser;
-    let user = await User.findOne({ _id: mockUser._id }).exec();
-    if (!user) {
-      await User.create(mockUser);
-    }
-    next();
-  });
-}
+app.use(express.static(path.join(__dirname, "..", "client"))); //, "build")));
 
 //Use flash messages for errors, info, ect...
 app.use(flash());
 
 //Setup Routes For Which The Server Is Listening
-app.use("/", mainRoutes);
-app.use("/events", eventsRoutes);
-app.use("/examples", examplesRoutes);
+//Note: it may be best practice to have a "/" route TODO: verify this
+app.use("/", examplesRoutes);
+// app.use("/examples", examplesRoutes);
 
 // Serve build pages in production when we only run server.js
 app.get("'", (req, res) => {

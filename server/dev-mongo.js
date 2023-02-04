@@ -3,6 +3,7 @@ const { MongoMemoryServer } = require('mongodb-memory-server');
 const fs = require('fs');
 const path = require('path');
 
+// This file runs a MongoDB server locally for development
 async function run() {
   const dbString = process.env.DB_STRING || ''
   if (!dbString.includes('localhost') && !dbString.includes('127.0.0.1')) {

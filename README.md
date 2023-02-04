@@ -15,6 +15,7 @@ A demo repo with the deployment setup/basic architecture of a robust full-stack 
 - Ask Rachel about "repo" vs "template" on GitHub.
 - Change discord server id to Cyclic's server in the backend
 - Change feature 2 button for distinction + make it colorblind friendly.
+- Clean up all TODOs
 - Once done, let Rachel know
 
 

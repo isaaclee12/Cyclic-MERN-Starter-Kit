@@ -22,6 +22,7 @@ const App = () => {
     // Database data from server
     const response = await APIService.getAllExamples();
     setData(response.data);
+    console.log("FETCHED:", response.data);
   }
   
   // Fetch the data on page load, don't set loading to false until data's fetched.
@@ -135,8 +136,7 @@ const App = () => {
 
         <h1 className="mt-20">Here is your Data:</h1>
         <div className="ml-10 text-left flex justify-center">
-          {
-            data.map(item =>
+          { data?.map(item =>
               <ul className="list-disc mt-5 mb-20" key={item._id}>
                 <li>stringField: {item.stringField}</li>
                 <li>numberField: {item.numberField}</li>

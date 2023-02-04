@@ -37,14 +37,6 @@ const ExampleSchema = new mongoose.Schema(
         },
       },
     },
-    // A customer field type based on another model (see ref: "User")
-    user: {
-      type: mongoose.SchemaTypes.ObjectId, // User: is the ObjectId of author user
-      required: true,
-      ref: "User", // This uses the User schema as the schema for this field
-    },
-    // A list field type (MongoDB can store arrays as data)
-    rsvpList: [{ type: mongoose.SchemaTypes.ObjectId }],
   },
   // Enable timestamps for when each entry was created and last updated
   { timestamps: true }
