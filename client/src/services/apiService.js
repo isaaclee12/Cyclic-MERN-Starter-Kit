@@ -9,19 +9,19 @@ import axios from "axios";
 // See server/routes/main.js to see where these routes connect to
 class APIService {
   createExample(msg) {
-    return axios.post(`http://localhost:3000/`, msg);
+    return axios.post(`/`, msg);
   }
   getAllExamples() {
-    return axios.get("http://localhost:3000/");
+    return axios.get("/");
   }
   getExampleById(id) {
-    return axios.get(`http://localhost:3000/${id}`);
+    return axios.get(`/${id}`);
   }
   deleteExample(id) {
-    return axios.delete(`http://localhost:3000/${id}`)
+    return axios.delete(`/${id}`)
   }
   deleteAllExamples(groupId) {
-    return axios.delete(`http://localhost:3000/deleteAllExamples/${groupId}`)
+    return axios.delete(`/deleteAllExamples/${groupId}`)
   }
 
 }
