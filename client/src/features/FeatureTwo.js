@@ -15,13 +15,12 @@ export default function FeatureTwo() {
 
     const buttonStyle = "border-2 border-black \
     bg-purple-600 hover:bg-purple-700 active:bg-purple-800 \
-    rounded-full py-2 px-10 text-slate-800 \
+    rounded py-2 px-10 text-slate-800 \
     text-lg font-bold tracking-wider"
 
     return (
         <div>
-            <h1 className="text-2xl">Feature Two</h1>
-            <button className={buttonStyle} onClick={handleButton}>Press Me!</button>
+            <button className={buttonStyle} onClick={handleButton}>Feature Two - Press Me!</button>
         </div>
     )
 } 

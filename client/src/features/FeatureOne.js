@@ -20,8 +20,7 @@ export default function FeatureOne() {
 
     return (
         <div>
-            <h1 className="text-2xl">Feature One</h1>
-            <button className={buttonStyle} onClick={handleButton}>Press Me!</button>
+            <button className={buttonStyle} onClick={handleButton}>Feature One - Press Me!</button>
         </div>
     )
 } 

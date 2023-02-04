@@ -65,6 +65,8 @@ app.use(flash());
 app.use("/", mainRoutes);
 app.use("/events", eventsRoutes);
 app.use("/examples", examplesRoutes);
+
+// Serve build pages in production when we only run server.js
 app.get("'", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
 });
