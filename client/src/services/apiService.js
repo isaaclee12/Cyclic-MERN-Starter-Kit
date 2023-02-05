@@ -5,7 +5,6 @@ const URL = axios.create({
 });
 
 // This is the API service
-// TODO: Replace these API calls and all the server endpoints to examples
 // See server/routes/main.js to see where these routes connect to
 class APIService {
   createExample(msg) {

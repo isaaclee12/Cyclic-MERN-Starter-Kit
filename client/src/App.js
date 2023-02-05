@@ -76,9 +76,6 @@ const App = () => {
       <main className="mx-[10%] text-center flex flex-col justify-center">
         <Layout />
 
-        {/* TODO: Figure out how to keep context's state variable without refresh.
-      Options include cookies, sessionStorage, or a routingContext like in together
-      This should be discussed with the team */}
         <Routes>
           <Route index element={<MainPage/ >}></Route>
           <Route path="one" element={<FeatureOne />}></Route>
