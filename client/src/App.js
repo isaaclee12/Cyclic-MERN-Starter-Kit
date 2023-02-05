@@ -20,6 +20,7 @@ const App = () => {
   // Fetch events from server
   const fetchData = async () => {
     // Database data from server
+    console.log("FETCHING...");
     const response = await APIService.getAllExamples();
     setData(response.data);
     console.log("FETCHED:", response.data);
@@ -87,14 +88,6 @@ const App = () => {
     // Re-fetch data after delete
     fetchData();
   }
-
-  // See data after it's fetched for debugging purposes
-  useEffect(() => {
-    console.log("Got data:", data);
-  }, [data])
-
-
-
 
   // Render nothing while fetching for data from server
   if (loading) return null;

@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const URL = axios.create({
-  baseURL: "http://localhost:3000",
-  mode: "cors",
+  baseURL: "http://localhost:2121",
+  headers: {"Access-Control-Allow-Origin": "*", "mode": "cors"},
   withCredentials: true,
 });
 
@@ -11,19 +11,19 @@ const URL = axios.create({
 // See server/routes/main.js to see where these routes connect to
 class APIService {
   createExample(msg) {
-    return URL.post(`/`, msg);
+    return URL.post("/examples/", msg);
   }
   getAllExamples() {
-    return URL.get("/");
+    return URL.get("/examples/");
   }
   getExampleById(id) {
-    return URL.get(`/${id}`);
+    return URL.get(`/examples/${id}`);
   }
   deleteExample(id) {
-    return URL.delete(`/${id}`)
+    return URL.delete(`/examples/${id}`)
   }
   deleteAllExamples(groupId) {
-    return URL.delete(`/deleteAllExamples/${groupId}`)
+    return URL.delete(`/examples/deleteAllExamples/${groupId}`)
   }
 
 }

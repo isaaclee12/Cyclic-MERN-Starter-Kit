@@ -9,6 +9,7 @@
     "dev-server": "cd server && npm run dev",
     "start": "cd server && npm start",
     "build": "cd client && npm run build",
+    "mock-cyclic": "npm run build && npm run start",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"

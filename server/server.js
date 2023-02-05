@@ -39,9 +39,7 @@ app.use(express.static(path.join(__dirname, "..", "client", "build")));
 app.use(flash());
 
 //Setup Routes For Which The Server Is Listening
-//Note: it may be best practice to have a "/" route TODO: verify this
-app.use("/", examplesRoutes);
-// app.use("/examples", examplesRoutes);
+app.use("/examples", examplesRoutes);
 
 // Serve build pages in production when we only run server.js
 app.get("'", (req, res) => {
