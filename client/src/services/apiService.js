@@ -3,7 +3,6 @@ import axios from "axios";
 const URL = axios.create({
   baseURL: "http://localhost:2121",
   headers: {"Access-Control-Allow-Origin": "*", "mode": "cors"},
-  withCredentials: true,
 });
 
 // This is the API service
