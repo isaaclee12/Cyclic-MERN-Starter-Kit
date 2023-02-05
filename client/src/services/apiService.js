@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const URL = axios.create({
-  baseURL: "http://localhost:3000",
+  // baseURL: "http://localhost:3000",
   headers: {"Access-Control-Allow-Origin": "*", "mode": "cors"},
 });
 
