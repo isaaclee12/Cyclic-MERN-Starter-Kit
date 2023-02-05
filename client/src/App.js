@@ -18,10 +18,8 @@ const App = () => {
   // Fetch events from server
   const fetchData = async () => {
     // Database data from server
-    console.log("FETCHING...");
     const response = await APIService.getAllExamples();
     setData(response.data);
-    console.log("FETCHED:", response.data);
   }
   
   // Fetch the data on page load, don't set loading to false until data's fetched.
@@ -31,15 +29,11 @@ const App = () => {
     .then(setLoading(false)).catch(setLoading(false));
   }, [])
 
-  useEffect(() => {
-    formData && console.log(formData);
-  }, [formData])
 
   /* Handle Data Changes */
   const handleChangeInForm = (e) => {
     // Set the target state to the new form field value
     const {name, value} = e.target;
-    console.log(name, value);
     setFormData(prevFormData => ({ ...prevFormData, [name]: value }));
   }
 
@@ -52,9 +46,7 @@ const App = () => {
       // Axios automatically serializes object to JSON
       // https://masteringjs.io/tutorials/axios/post-json
       const response = await APIService.createExample(formData);
-      console.log(response);
     } catch (err) {
-      console.error(err)
       return
     }
 
@@ -66,9 +58,7 @@ const App = () => {
   const handleDelete = async (event, idToDelete) => {
     try {
       const response = await APIService.deleteExample(idToDelete);
-      console.log(response);
     } catch (err) {
-      console.error(err)
       return
     }
 

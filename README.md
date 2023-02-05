@@ -96,7 +96,8 @@ NODE_ENV=development
 - Create a new cluster
 - In the cluster's settings, whitelist 0.0.0.0 in the Network Access section to whitelist all IP addresses
 - Get the connection string from the MongoDB "Connect" menu
-- Paste the connection in the Variables tab in Cyclic
+- Paste the connection string in the Variables tab in Cyclic
+- Set/create the variable "PORT" to "2121" in the Variables tab in Cyclic
 - This will allow your application to connect to your MongoDB cluster
 
 ### Connect to Discord/OAuth
