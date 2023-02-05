@@ -24,8 +24,6 @@ A demo repo with the deployment setup/basic architecture of a robust full-stack 
 - Express
 - Mongoose
 - MongoDB
-- Passport
-- Discord Authentication
 
 
 # About the App (How it Works)
@@ -41,12 +39,9 @@ A demo repo with the deployment setup/basic architecture of a robust full-stack 
     - Routes
     - Models
     - Controllers
-    - Passport
     - Mongoose
 
 - MongoDB:
-
-- OAuth:
 
 ## Tools, Accounts & Downloads
 - <a href="https://github.com/join" target="_blank">GitHub account</a>
@@ -68,32 +63,21 @@ A demo repo with the deployment setup/basic architecture of a robust full-stack 
     - This file, which will contain sensitive info, will automatically be ignored by .gitignore
 - You can use the template in ```server/config/env.example``` to insert your environment variables
 
-
 ### .env template setup
 
-*Please copy and paste this template into a new .env file instead of removing .example from the `server/config` folder*
+*Please copy and paste the contents of the ```env.example``` file into a new file titled ```.env``` instead of modifying or removing the contents of ```env.example``` from the `server/config` folder*
 
 Keeping `DB_STRING` as `mongodb://127.0.0.1:27017/` will generate an instanced MongoDB in your local. To view your database, you can use <a href="https://www.mongodb.com/products/compass" target="_blank">compass</a>. You can also create a [MongoDB database](https://www.mongodb.com/basics/create-database#:~:text=In%20MongoDB%20Compass%2C%20you%20create,Click%20%22Create%20Database%22) on [MongoDB.com](https://www.mongodb.com/), but would need to update the `DB_String` to [connect to MongoDB.](https://www.mongodb.com/docs/compass/current/connect/)
 
 
-<!-- saving this for future edit. allows users to use their own discord. http://localhost:2121/auth/discord/callback -->
 ```
 # Please copy and paste this template into a new .env file instead of removing .example from the file name
 # Do not change PORT or OAUTH_REDIRECT_URL
 # DB_STRING will create a MongoDB instance on your computer but can be changed to a mongodb.com cluster
 PORT = 2121
 DB_STRING = mongodb://127.0.0.1:27017/
-DISCORD_CLIENT_ID = 1039303417199345684
-DISCORD_CLIENT_SECRET = DISCORD_CLIENT_SECRET
-OAUTH_REDIRECT_URL = http://localhost:3000/
-MOCK_USER=true
 NODE_ENV=development
 ```
-
-*`DISCORD_CLIENT_SECRET` is not required unless you need to test the discord login. `MOCK_USER=true` and `NODE_ENV=development` allow the application to generate a fake user `testuser#1234` for development purposes. If you need `DISCORD_CLIENT_SECRET`, contact Chanel, Eric, Matt, or Caleb.*
-
-
-It is not recommended for beginners, but you can create your own `DISCORD_CLIENT_ID` and `DISCORD_CLIENT_SECRET` by going to [Discord Developer Portal](https://discord.com/developers/docs/intro); you must set the redirect to `http://localhost:2121/auth/discord/callback` for the application to function.
 
 ### Running the application
 - Run ```npm run dev``` to run the app in development mode. The client and server will then run concurrently.

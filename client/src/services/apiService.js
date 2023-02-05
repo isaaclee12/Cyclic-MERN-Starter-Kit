@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const URL = axios.create({
-  // baseURL: "http://localhost:3000",
   headers: {"Access-Control-Allow-Origin": "*", "mode": "cors"},
 });
 
@@ -10,7 +9,7 @@ const URL = axios.create({
 // See server/routes/main.js to see where these routes connect to
 class APIService {
   createExample(msg) {
-    return URL.post("/examples/", msg);
+    return URL.post(`/examples/`, msg);
   }
   getAllExamples() {
     return URL.get("/examples/");

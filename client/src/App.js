@@ -13,9 +13,7 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
-  const [formStringField, setFormStringField] = useState("");
-  const [formNumberField, setFormNumberField] = useState(0);
-  const [formDateField, setFormDateField] = useState();
+  const [formData, setFormData] = useState([]);
 
   // Fetch events from server
   const fetchData = async () => {
@@ -34,29 +32,18 @@ const App = () => {
   }, [])
 
   useEffect(() => {
-    if (formStringField) {
-      console.log(formStringField, "///", formNumberField, "///", formDateField);
-    }
-  }, [formStringField, formNumberField, formDateField])
+    formData && console.log(formData);
+  }, [formData])
 
   /* Handle Data Changes */
-  const handleChangeInForm = (e, setterToCall) => {
+  const handleChangeInForm = (e) => {
     // Set the target state to the new form field value
-    // `${setterToCall}`(e.target);
-
     const {name, value} = e.target;
     console.log(name, value);
-    console.log(eval(setterToCall)(value));
+    setFormData(prevFormData => ({ ...prevFormData, [name]: value }));
   }
-
 
   /* Data Submission */
-  const dataToSubmit = {
-    stringField: formStringField,
-    numberField: formNumberField,
-    dateField: formDateField
-  }
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -64,7 +51,7 @@ const App = () => {
     try {
       // Axios automatically serializes object to JSON
       // https://masteringjs.io/tutorials/axios/post-json
-      const response = await APIService.createExample(dataToSubmit);
+      const response = await APIService.createExample(formData);
       console.log(response);
     } catch (err) {
       console.error(err)
@@ -111,17 +98,17 @@ const App = () => {
         <form className="mx-[20%] mt-10 px-[5%] border-2">
           <div className="mt-10 overflow-auto">
             <label className="float-left">String Field:</label>
-            <input type="text" onChange={(e) => handleChangeInForm(e, "setFormStringField")} className="border-2 float-right" />
+            <input type="text" name="stringField" onChange={(e) => handleChangeInForm(e)} className="border-2 float-right" />
           </div>
 
           <div className="mt-10 overflow-auto">
             <label className="float-left">Number Field:</label>
-            <input type="text" onChange={(e) => handleChangeInForm(e, "setFormNumberField")} className="border-2 float-right" />
+            <input type="text" name="numberField" onChange={(e) => handleChangeInForm(e)} className="border-2 float-right" />
           </div>
 
           <div className="mt-10 overflow-auto">
             <label className="float-left">Date Field:</label>
-            <input type="date" onChange={(e) => handleChangeInForm(e, "setFormDateField")} className="border-2 float-right" />
+            <input type="date" name="dateField" onChange={(e) => handleChangeInForm(e)} className="border-2 float-right" />
           </div>
 
           <button className="my-10" onClick={(e) => handleSubmit(e)}>Press me to submit data!</button>

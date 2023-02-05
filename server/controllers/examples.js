@@ -18,8 +18,6 @@ module.exports = {
     res.status(201).json({ message: "Example created!", example: addedExamples });
   },
   getAll: async (req, res) => {
-    console.log("Request recieved");
-
     // Get an array of ALL example
     const example = await Example.find()
       .lean()
