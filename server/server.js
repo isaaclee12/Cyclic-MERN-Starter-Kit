@@ -41,11 +41,6 @@ app.use(flash());
 //Setup Routes For Which The Server Is Listening
 app.use("/examples", examplesRoutes);
 
-// Serve build pages in production when we only run server.js
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
-});
-
 // 404 handler
 app.use((req, res) => {
   res.status(404).json({ message: "Not found" });
