@@ -42,7 +42,7 @@ app.use(flash());
 app.use("/examples", examplesRoutes);
 
 // Serve build pages in production when we only run server.js
-app.get("'", (req, res) => {
+app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
 });
 
