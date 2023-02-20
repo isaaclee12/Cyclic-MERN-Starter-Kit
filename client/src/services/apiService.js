@@ -4,7 +4,7 @@ const URL = axios.create({
   headers: {"Access-Control-Allow-Origin": "*", "mode": "cors"},
 });
 
-// This is the API service
+// This is the APwI service
 // See server/routes/main.js to see where these routes connect to
 class APIService {
   createExample(msg) {
