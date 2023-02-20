@@ -37,6 +37,9 @@ A demo repo with the deployment setup/basic architecture of a robust full-stack 
     - Mongoose
 
 - MongoDB:
+    - Atlas
+    - Download
+    - Compass
 
 ## Tools, Accounts & Downloads
 - <a href="https://github.com/join" target="_blank">GitHub account</a>
