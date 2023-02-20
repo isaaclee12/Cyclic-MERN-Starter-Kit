@@ -7,15 +7,10 @@ A demo repo with the deployment setup/basic architecture of a robust full-stack 
 - Credit to <a href="https://github.com/RascalTwo">Rascal_Two</a> for help with Cyclic deployment
 
 # Roadmap:
-- Change imports in backend/server to match syntax in front end (import statements)
+- Change imports in backend/server to match syntax in front end (import statements).
 - Implement Update functionality for the "Example" Object.
-- Delete artifacts from original Together project (e.g. events.js, etc)
-- Have certain features only appear if authorized.
-- Ask Rachel about "repo" vs "template" on GitHub.
-- Change discord server id to Cyclic's server in the backend
-- Change feature 2 button for distinction + make it colorblind friendly.
-- Clean up all TODOs
-- Once done, let Rachel know
+- Add more thorough documentation in the code.
+- Add diagrams in the README for how this app works.
 
 
 # Tech Used:
@@ -50,8 +45,8 @@ A demo repo with the deployment setup/basic architecture of a robust full-stack 
 - [Discord](https://discord.com/) & Joined [100 Devs](https://discord.gg/100devs)
 - [Compass **(Recommended)**](https://www.mongodb.com/products/compass) or similar MongoDB GUI if using `mongodb://127.0.0.1:27017/` as your DB_STRING
 - [MongoDB Account: **(Optional)**](https://www.mongodb.com/) Only required if not using Compass. You will need to change your DB_STRING `mongodb://127.0.0.1:27017/` as your DB_STRING (see [below](#env-template-setup))
-- [NodeJS](https://nodejs.org/en/download/)
-
+- [NodeJS v18.12.1](https://nodejs.org/download/release/v18.12.1/)
+ 
 # Local Initialization
 ### Installation
 - Clone the repo
@@ -88,7 +83,7 @@ NODE_ENV=development
 - Clone the repository
 - Set up on cyclic - deployment will succeed
 - Open the application at the given URL - it will have errors
-- This is the expected behavior, as we still need to connect our application to MongoDB and OAuth/Discord
+- This is the expected behavior, as we still need to connect our application to MongoDB
 
 ### Connect to MongoDB:
 - If you have not already, create a MongoDB account
@@ -96,18 +91,13 @@ NODE_ENV=development
 - Create a new cluster
 - In the cluster's settings, whitelist 0.0.0.0 in the Network Access section to whitelist all IP addresses
 - Get the connection string from the MongoDB "Connect" menu
+
+### Set Environment Variabes:
 - Paste the connection string in the Variables tab in Cyclic
 - Set/create the variable "PORT" to "2121" in the Variables tab in Cyclic
 - This will allow your application to connect to your MongoDB cluster
-
-### Connect to Discord/OAuth
-- Navigate to https://discord.com/developers/applications and create a new application
-- In the application settings, navigate to the OAuth -> General menu
-- Set the "Redirect" to http://[app-name-here].cyclic.app/auth/discord/callback
-    - IMPORTANT: The URI here MUST start with http
-- Copy your Discord client id and client secret into the Variables tab in Cyclic
-- Set OAuth redirect URL variable in this tab to your app's current URL (e.g. https://[app-name-here].cyclic.app/ (this one can be https))
+- Set/create the variable "NODE_ENV" and set it to "production"
 
 No need to re-deploy afterwards. The serverless nature of Cyclic will cause your app to load your variables in on the next refresh.
 
-Enjoy your brand new full-stack MERN application!
+Enjoy your brand new fully deployed full-stack MERN application!
