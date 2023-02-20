@@ -6,6 +6,9 @@ A demo repo with the deployment setup/basic architecture of a robust full-stack 
 - Infrastructure based on <a href="https://github.com/Caleb-Cohen/Together">Together</a>, created by <a href="https://leonnoel.com/100devs/">#100Devs</a>
 - Credit to <a href="https://github.com/RascalTwo">Rascal_Two</a> for help with Cyclic deployment
 
+# Want to Contribute?
+- If you find any bugs, or have a small feature you'd like to see, please make an Issue.
+
 # Roadmap:
 - Change imports in backend/server to match syntax in front end (import statements).
 - Implement Update functionality for the "Example" Object.
