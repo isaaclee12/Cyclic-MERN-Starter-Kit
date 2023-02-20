@@ -1,6 +1,6 @@
 {
   "scripts": {
     "start": "node server.js",
-    "dev": "concurrently \"node dev-mongo\" \"node --watch server.js\""
+    "dev": "concurrently \"node dev-mongo\" \"nodemon server.js\""
   }
 }
