@@ -100,4 +100,4 @@ NODE_ENV=development
 
 No need to re-deploy afterwards. The serverless nature of Cyclic will cause your app to load your variables in on the next refresh.
 
-Enjoy your brand new full-stack MERN application!
+Enjoy your brand new fully deployed full-stack MERN application!
