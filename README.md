@@ -96,7 +96,7 @@ NODE_ENV=development
 - Paste the connection string in the Variables tab in Cyclic
 - Set/create the variable "PORT" to "2121" in the Variables tab in Cyclic
 - This will allow your application to connect to your MongoDB cluster
-- Set/create the variable "NODE_ENV" and set it to "--production"
+- Set/create the variable "NODE_ENV" and set it to "production"
 
 No need to re-deploy afterwards. The serverless nature of Cyclic will cause your app to load your variables in on the next refresh.
 
