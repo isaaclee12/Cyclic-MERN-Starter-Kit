@@ -1,9 +1,9 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const examplesController = require("../controllers/examples");
-const validateBody = require("../middleware/validateBody");
-const validateObjectId = require("../middleware/validateObjectId");
-const { createExampleSchema } = require("../models/Example");
+import examplesController from "../controllers/examples.js";
+import validateBody from "../middleware/validateBody.js";
+import validateObjectId from "../middleware/validateObjectId.js";
+import { createExampleSchema } from "../models/Example.js";
 
 // These routes extend the /examples/ route
 router.post(
@@ -29,4 +29,4 @@ router.delete(
   examplesController.deleteAllExamples
 );
 
-module.exports = router;
+export default router;

@@ -1,7 +1,10 @@
-require("dotenv").config({ path: "./config/.env" });
-const { MongoMemoryServer } = require('mongodb-memory-server');
-const fs = require('fs');
-const path = require('path');
+import dotenv from 'dotenv'
+
+dotenv.config({ path: "./config/.env" });
+import { MongoMemoryServer } from 'mongodb-memory-server';
+import fs from 'fs';
+import path from 'path';
+import {fileURLToPath} from 'url';
 
 // This file runs a MongoDB server locally for development
 async function run() {
@@ -10,6 +13,9 @@ async function run() {
     console.log('DB_STRING is not localhost, not running local mongo')
     return
   }
+  
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
   const dbPath = path.join(__dirname, '..', '.mongo');
 
   if (!fs.existsSync(dbPath)) {

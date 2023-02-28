@@ -3,10 +3,10 @@
 * See the link below for the docs:
 * https://mongoosejs.com/docs/schematypes.html
 */
-const mongoose = require("mongoose");
-const Joi = require("joi"); // data validation library
+import mongoose from "mongoose";
+import Joi from "joi"; // data validation library
 
-STRING_MAX_LENGTH = 100;
+const STRING_MAX_LENGTH = 100;
 
 // Define the schema of the "event" object
 const ExampleSchema = new mongoose.Schema(
@@ -56,7 +56,7 @@ const createExampleSchema = Joi.object({
 });
 
 // Export our schemas to be used in other files
-module.exports = {
+export {
   Example,
   createExampleSchema,
 };

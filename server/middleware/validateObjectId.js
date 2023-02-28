@@ -1,5 +1,5 @@
-const { isValidObjectId } = require("mongoose");
-const httpError = require("../utilities/httpError");
+import isValidObjectId from "mongoose";
+import httpError from "../utilities/httpError.js";
 
 // Check if Mongoose ObjectId is valid
 const validateObjectId = (req, _, next) => {
@@ -10,4 +10,4 @@ const validateObjectId = (req, _, next) => {
   next();
 };
 
-module.exports = validateObjectId;
+export default validateObjectId;

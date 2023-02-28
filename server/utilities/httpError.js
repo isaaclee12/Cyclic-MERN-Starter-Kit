@@ -15,4 +15,4 @@ const httpError = (status, message = errorMessages[status]) => {
   return error;
 };
 
-module.exports = httpError;
+export default httpError;

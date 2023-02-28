@@ -1,18 +1,21 @@
-const express = require("express");
-const path = require("path");
+import express from "express";
+import path from "path";
 const app = express();
-const mongoose = require("mongoose");
-const session = require("express-session");
-const MongoStore = require("connect-mongo")(session);
-const flash = require("express-flash");
-const connectDB = require("./config/database");
+import mongoose from "mongoose";
+import session from "express-session";
+import { default as connectMongoDBSession} from 'connect-mongodb-session';
+const MongoStore = connectMongoDBSession(session);
+import flash from "express-flash";
+import connectDB from "./config/database.js";
+import {fileURLToPath} from 'url';
 
 //Use .env file in config folder
-require("dotenv").config({ path: "./config/.env" });
-const examplesRoutes = require("./routes/examples");
+import dotenv from 'dotenv'
+dotenv.config({ path: "./config/.env" });
+import examplesRoutes from "./routes/examples.js";
 
 // Enable CORS for client origin only
-const cors = require('cors')
+import cors from 'cors'
 const corsOptions = {
    origin : ['http://localhost:3000', 'https://localhost:3000'],
 }
@@ -23,16 +26,18 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Setup Sessions - stored in MongoDB
-app.use(
-  session({
+app.use(require('express-session')({
     secret: process.env.SESSION_SECRET || "keyboard cat",
     resave: false,
     saveUninitialized: false,
-    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+    store: MongoStore.create({ mongooseConnection: mongoose.connection }),
   })
+  
 );
 
 // Render React as View
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, "..", "client", "build")));
 
 //Use flash messages for errors, info, ect...

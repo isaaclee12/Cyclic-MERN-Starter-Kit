@@ -1,4 +1,4 @@
-const httpError = require("../utilities/httpError");
+import httpError from "../utilities/httpError.js";
 
 const validateBody = schema => {
   const func = async (req, _, next) => {
@@ -17,4 +17,4 @@ const validateBody = schema => {
   return func;
 };
 
-module.exports = validateBody;
+export default validateBody;

@@ -1,8 +1,8 @@
-const { Example } = require("../models/Example");
-const httpError = require("../utilities/httpError");
-require("express-async-errors");
+import { Example } from "../models/Example.js";
+import httpError from "../utilities/httpError.js";
+import "express-async-errors";
 
-module.exports = {
+const examplesController = {
   create: async (req, res) => {
 
     // consume the example 
@@ -53,3 +53,5 @@ module.exports = {
     res.sendStatus(204);
   },
 };
+
+export default examplesController;
