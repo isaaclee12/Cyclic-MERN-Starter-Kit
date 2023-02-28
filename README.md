@@ -10,11 +10,8 @@ A demo repo with the deployment setup/basic architecture of a robust full-stack 
 - If you find any bugs, or have a small feature you'd like to see, please make an Issue.
 
 # Roadmap:
-- Change imports in backend/server to match syntax in front end (import statements).
 - Implement Update functionality for the "Example" Object.
-- Add more thorough documentation in the code.
-- Add diagrams in the README for how this app works.
-
+- Add better documentation for how this app works.
 
 # Tech Used:
 - React
@@ -22,27 +19,6 @@ A demo repo with the deployment setup/basic architecture of a robust full-stack 
 - Express
 - Mongoose
 - MongoDB
-
-
-# About the App (How it Works)
-*This section is in progress*
-- React/Node:
-    - npm/package.json
-    - Routing (react-router-dom)
-    - useState & useEffect
-    - useContext
-    - axios (apiService.js)
-
-- Express:
-    - Routes
-    - Models
-    - Controllers
-    - Mongoose
-
-- MongoDB:
-    - Atlas
-    - Download
-    - Compass
 
 ## Tools, Accounts & Downloads
 - <a href="https://github.com/join" target="_blank">GitHub account</a>
